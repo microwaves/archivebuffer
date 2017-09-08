@@ -1,4 +1,4 @@
-# archive-buffer
+# archivebuffer
 
 Utilities to help creating tarballs, untar, gzip and ungzip.
 
