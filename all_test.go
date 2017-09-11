@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/microwaves/go-utils/randomizer"
+	"github.com/microwaves/randomizer"
 )
 
 func TestArchive(t *testing.T) {
