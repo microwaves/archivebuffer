@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/microwaves/randomizer"
+	"vvoid.pw/randomizer"
 )
 
 func TestArchive(t *testing.T) {
