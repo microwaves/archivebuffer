@@ -12,9 +12,12 @@ import (
 // 'source' is the path to the file or directory that you
 // would like to archive.
 //
+// Set 'keepBaseDir' to true or false, in order to define whether the
+// base directory should be kept or not when being extracted.
+//
 // Example:
-//     NewTarBallBuffer("/tmp/foobar")
-func NewTarballBuffer(source string) (*bytes.Buffer, error) {
+//     NewTarballBuffer("/tmp/foobar", true)
+func NewTarballBuffer(source string, keepBaseDir bool) (*bytes.Buffer, error) {
 	tarBuf := &bytes.Buffer{}
 	tarball := tar.NewWriter(tarBuf)
 	defer tarball.Close()
@@ -41,6 +44,11 @@ func NewTarballBuffer(source string) (*bytes.Buffer, error) {
 
 		if baseDir != "" {
 			header.Name = filepath.Join(baseDir, strings.TrimPrefix(path, source))
+		}
+
+		if !keepBaseDir {
+			header.Name = strings.TrimPrefix(header.Name, baseDir)
+			header.Name = strings.TrimPrefix(header.Name, "/")
 		}
 
 		if err := tarball.WriteHeader(header); err != nil {
