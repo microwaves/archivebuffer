@@ -46,6 +46,7 @@ func NewTarballBuffer(source string, keepBaseDir bool) (*bytes.Buffer, error) {
 			header.Name = filepath.Join(baseDir, strings.TrimPrefix(path, source))
 		}
 
+		// TODO: Review this feature later and research for a better solution.
 		if !keepBaseDir {
 			header.Name = strings.TrimPrefix(header.Name, baseDir)
 			header.Name = strings.TrimPrefix(header.Name, "/")
