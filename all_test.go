@@ -15,7 +15,7 @@ func TestArchive(t *testing.T) {
 	if err != nil {
 		t.Errorf("Some errors occurred when creating the test file. %v", err)
 	}
-	tarBuf, err := NewTarballBuffer(testfilePath)
+	tarBuf, err := NewTarballBuffer(testfilePath, true)
 	if err != nil {
 		t.Errorf("Some errors occurred when archiving. %v", err)
 	}
@@ -43,7 +43,7 @@ func TestCompress(t *testing.T) {
 	if err != nil {
 		t.Errorf("Some errors occurred when creating the test file. %v", err)
 	}
-	tarBuf, err := NewTarballBuffer(testfilePath)
+	tarBuf, err := NewTarballBuffer(testfilePath, true)
 	if err != nil {
 		t.Errorf("Some errors occurred when archiving. %v", err)
 	}
