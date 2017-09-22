@@ -2,6 +2,8 @@
 
 Utilities to help creating tarballs, untar, gzip and ungzip.
 
+[![Build Status](https://travis-ci.org/microwaves/archivebuffer.svg?branch=master)](https://travis-ci.org/microwaves/archivebuffer)
+
 ## NewTarballBuffer()
 
 Creates a tarball from a source file or directory and returns a `*bytes.Buffer`.
